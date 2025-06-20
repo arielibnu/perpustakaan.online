@@ -244,10 +244,14 @@
       flex: 1 1 200px;
     }
 
-    .footer-section h4 {
+    .footer-section h4  {
       margin-bottom: 0.5rem;
       font-size: 1.1rem;
       color: #00bcd4;
+    }
+
+    .h3 {
+      color: white;
     }
 
     .footer-section ul {
@@ -292,7 +296,7 @@
   <div class="wrapper">
     <aside class="sidebar">
       <ul>
-        <li><a href="Home.html"><img src="https://img.icons8.com/ios-filled/24/home.png" /> Home</a></li>
+        <li><a href="home.html"><img src="https://img.icons8.com/ios-filled/24/home.png" /> Home</a></li>
         <li><a href="daftar-buku.html"><img src="https://img.icons8.com/ios-filled/24/book.png" /> Daftar Buku</a></li>
         <li><a href="buku-anak.html"><img src="https://img.icons8.com/ios-filled/24/child-safe-zone.png" /> Buku Anak</a></li>
         <li><a href="klub-buku.html"><img src="https://img.icons8.com/ios-filled/24/groups.png" /> Klub Buku</a></li>
@@ -340,28 +344,33 @@
   </div>
 
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>Teknik Informatika UTM</h3>
-        <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
-      </div>
-
-      <div class="footer-section about-us">
-        <h4>About Us</h4>
-        <ul>
-          <li><a href="#">Riko Tampati – Ketua</a></li>
-          <li><a href="#">Ariel Ibnu Firmansyah MS – Anggota</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section footer-links">
-        <h4>Media Sosial</h4>
-        <a href="#" class="footer__icon"><i class="bx bxl-whatsapp"></i></a>
-        <a href="#" class="footer__icon"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="footer__icon"><i class="bx bxl-github"></i></a>
-      </div>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3 class="h3">Teknik Informatika UTM</h3>
+      <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
     </div>
-  </footer>
+
+    <div class="footer-section about-us">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+        <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+        <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+        <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+        <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+        <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+        <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section footer-links">
+      <h4>Media Sosial</h4>
+        <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+    </div>
+  </div>
+</footer>
 
   <script>
     document.getElementById("kirimRating").addEventListener("click", function () {
