@@ -1,0 +1,215 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  background-size: 200% 200%;
+  animation: gradientFlow 10s ease infinite;
+  color: white;
+  min-height: 100vh;
+}
+
+
+/* Header */
+header{
+  background-color: #0054b4;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  font-size: 16px;
+
+}
+
+.header {
+  font-size: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon {
+  font-size: 26px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.faq {
+  font-size: 18px;
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.faq {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.profile-icon {
+  font-size: 26px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.wrapper {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #dedede;
+  padding-top: 1rem;
+  flex-shrink: 0;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin: 14px 0;
+  font-weight: 600;
+  color: #0b3f7a;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.sidebar li:hover {
+  background-color: #e3f2fd;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size:2rem;
+  margin-top: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+  font-size:1.8rem;
+  margin-top: 10px;
+  color: #0054b4;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  background: white;
+  color: black;
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-back h3 {
+  margin-top: 0;
+  color: #6b21a8;
+}
+
+.read-button {
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.read-button:hover {
+  background: #1d4ed8;
+}

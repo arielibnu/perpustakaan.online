@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Online</title>
+    <link rel="stylesheet" href="deskripsi.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>Perpustakaan Online</h1>
+      <nav>
+      <a onclick="window.location.href='interface4.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/?size=20&id=m9mmKqXbgFsQ&format=png&color=000000"/>
+      </a>
+        <a href="#">FAQ</a>
+        <i class="fas fa-user-circle user-icon"></i>
+      </nav>
+    </header>
+
+    <!-- Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <ul>
+      
+      <li onclick="window.location.href='Home.html'" style="cursor:pointer;">
+      <img src="https://img.icons8.com/ios-filled/24/home.png"/> Home
+      </li>
+      <li onclick="window.location.href='daftarbuku.html'" style="cursor:pointer;">
+      <img src="https://img.icons8.com/ios-filled/24/book.png"/> Daftar Buku
+      </li>
+      <li onclick="window.location.href='buku anak.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/child-safe-zone.png"/>Buku Anak
+      </li>
+      <li onclick="window.location.href='6.event.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/event-accepted.png"/>Event
+      </li>
+      <li onclick="window.location.href='challange.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/flag.png"/>Challange
+      </li>
+      <li onclick="window.location.href='interface1.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/000000/open-book.png"/>Pengembalian Buku
+      </li>
+      <li onclick="window.location.href='pengaturan.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/settings.png"/>Pengaturan
+      </li>
+    </ul>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Detail Buku -->
+        <div class="detail-buku">
+          <div class="detail-kiri">
+            <img src="ayahku.jpeg" alt="bumi" />
+          </div>
+          <div class="detail-kanan">
+            <table>
+              <tr>
+                <td><strong>Judul</strong></td>
+                <td>: Bumi</td>
+              </tr>
+              <tr>
+                <td><strong>Penerbit</strong></td>
+                <td>: PT Gramedia Pustaka Utama</td>
+              </tr>
+              <tr>
+                <td><strong>Kategori</strong></td>
+                <td>: Novel Remaja</td>
+              </tr>
+              <tr>
+                <td><strong>Penulis</strong></td>
+                <td>: Tere Liye</td>
+              </tr>
+              <tr>
+                <td><strong>Halaman</strong></td>
+                <td>: 440</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Sinopsis -->
+        <div class="sinopsis">
+          <strong>Sinopsis:</strong>
+          <p>
+          Novel ini mengisahkan petualangan tiga remaja—Raib, Seli, dan Ali—yang
+          memiliki kemampuan luar biasa dan terhubung dengan dunia paralel. Raib
+          bisa menghilang, Seli memiliki kekuatan listrik, dan Ali adalah anak jenius.
+          Mereka terlibat dalam konflik antara klan-klan dunia paralel dan berjuang
+          untuk menyelamatkan Bumi dari ancaman Tamus, sosok jahat yang ingin menguasai dunia. 
+          </p>
+          <button class="pinjam-btn" id="openPopupBtn">Pinjam</button>
+
+          <button class="whislist-btn" id="">Whislist</button>
+        </div>
+      </div>
+    </div>
+
+      <!-- Tabel Peminjam -->
+      <div class="daftar-peminjam">
+        <h3>Daftar Peminjam:</h3>
+        <table id="tabelPeminjam">
+          <thead>
+            <tr><th>Nama</th><th>No Telepon</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popupForm" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopupBtn">&times;</span>
+      <h2>Peminjam</h2>
+      <form id="formPinjam">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+        <label for="telp">No Telepon:</label>
+        <input type="number" id="telp" name="telepon" required>
+        <button type="submit" id="kirim-btn">Kirim</button>
+        <p id="success-message" style="display: none; color: white; margin-top: 1rem; text-align: center;">Peminjaman berhasil!</p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Teknik Informatika UTM</h3>
+      <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+    </div>
+
+    <div class="footer-section about-us">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+        <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+        <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+        <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+        <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+        <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+        <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section footer-links">
+      <h4>Media Sosial</h4>
+        <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <script src="pinjam.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perpustakaan Online</title>
+    <link rel="stylesheet" href="oo.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo">📚<br />Perpustakaan Online</div>
+        <nav>
+          <!-- Di dalam sidebar, pastikan ada menu admin -->
+<ul>
+  <li>📖 Daftar buku</li>
+  <li>👶 Buku Anak</li>
+  <li>👥 Klub Buku</li>
+  <li>📅 Event</li>
+  <li>🏆 Challenge</li>
+  <li>🩷 Wishlist</li>
+  <li id="menuAdmin">👤 Daftar Pengguna</li>
+  <li>⚙ Pengaturan</li>
+</ul>
+        </nav>
+      </aside>
+
+      <div class="main">
+        <header class="header">
+          <h1>Perpustakaan Online (Admin)</h1>
+          <div class="header-right">
+            <a href="index.htm"><div class="user-icon">👤</div></a>
+          </div>
+        </header>
+
+        <section class="content">
+          <div class="book-section">
+            <div class="kategori-bar">
+              <h2>Admin dan Manajemen</h2>
+              <div class="kategori-kanan">
+                <div class="search-group">
+                  <input
+                    type="text"
+                    class="search-box"
+                    placeholder="Cari buku..." />
+                  <button class="search-button">🔍</button>
+                </div>
+                <button class="aksi" id="btnTambahBuku">Tambah Buku</button>
+              </div>
+            </div>
+
+            <div class="books" id="booksContainer"></div>
+          </div>
+
+          <div class="statistik-peminjaman">
+            <div class="book-deskripsi"></div>
+            <h2>Statistik Peminjaman Buku</h2>
+            <div
+              class="statistik-wrapper"
+              style="display: flex; gap: 20px; flex-wrap: wrap">
+              <div class="statistik-item" style="flex: 1; min-width: 300px">
+                <h3>Peminjaman per Judul</h3>
+                <canvas id="chartJudul" width="400" height="300"></canvas>
+              </div>
+              <div class="statistik-item" style="flex: 1; min-width: 300px">
+                <h3>Peminjaman per Kategori</h3>
+                <canvas id="chartKategori" width="400" height="300"></canvas>
+              </div>
+            </div>
+
+            <button
+              id="btnKosongkan"
+              style="
+                margin-top: 20px;
+                padding: 10px;
+                background-color: #f44336;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+              ">
+              Kosongkan Data Peminjaman
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Daftar Pengguna -->
+    <div class="daftar-pengguna" id="daftarPengguna" style="display: none">
+      <h2>Daftar Pengguna</h2>
+      <ul id="listPengguna">
+        <!-- Akan diisi melalui JavaScript -->
+      </ul>
+    </div>
+
+    <!-- Modal Tambah/Edit Buku -->
+    <div
+      id="formModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        color: black;
+        width: 300px;
+      ">
+      <h3 id="modalTitle">Tambah Buku</h3>
+      <input
+        type="text"
+        id="judul"
+        placeholder="Judul Buku"
+        style="display: block; margin-bottom: 10px; width: 100%" />
+      <input
+        type="text"
+        id="kategori"
+        placeholder="Kategori Buku"
+        style="display: block; margin-bottom: 10px; width: 100%" />
+      <input
+        type="text"
+        id="gambar"
+        placeholder="Link Gambar"
+        style="display: block; margin-bottom: 10px; width: 100%" />
+      <input
+        type="text"
+        id="tautan"
+        placeholder="Link Buku (URL)"
+        style="display: block; margin-bottom: 10px; width: 100%" />
+      <textarea
+        id="deskripsi"
+        placeholder="Deskripsi Buku"
+        style="
+          display: block;
+          margin-bottom: 10px;
+          width: 100%;
+          height: 80px;
+        "></textarea>
+      <button id="btnSimpan">Simpan</button>
+      <button id="btnBatal" style="margin-left: 10px">Batal</button>
+    </div>
+
+    <script src="oo.js"></script>
+  </body>
+</html>

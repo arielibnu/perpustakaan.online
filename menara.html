@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perpustakaan Online - Negeri 5 Menara</title>
+  <link rel="stylesheet" href="deskripsi.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Perpustakaan Online</h1>
+    <nav>
+      <a onclick="window.location.href='interface4.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/?size=20&id=m9mmKqXbgFsQ&format=png&color=000000"/>
+      </a>
+      <a href="#">FAQ</a>
+      <i class="fas fa-user-circle user-icon"></i>
+    </nav>
+  </header>
+
+  <!-- Container -->
+  <div class="container">
+    <div class="main-content">
+      <!-- Detail Buku -->
+      <div class="detail-buku">
+        <div class="detail-kiri">
+          <img src="menara.jpg" alt="Negeri 5 Menara" />
+        </div>
+        <div class="detail-kanan">
+          <table>
+            <tr><td><strong>Judul</strong></td><td>: Negeri 5 Menara</td></tr>
+            <tr><td><strong>Penerbit</strong></td><td>: Gramedia Pustaka Utama</td></tr>
+            <tr><td><strong>Kategori</strong></td><td>: Romantis</td></tr>
+            <tr><td><strong>Penulis</strong></td><td>: Ahmad Fuadi</td></tr>
+            <tr><td><strong>Halaman</strong></td><td>: 424</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sinopsis -->
+      <div class="sinopsis">
+        <strong>Sinopsis:</strong>
+        <p>
+          “Man Jadda Wajada” — siapa yang bersungguh-sungguh, pasti akan berhasil. Itulah mantra sakti yang menjadi semangat hidup tokoh utama, Alif Fikri, dalam novel *Negeri 5 Menara*. Alif, remaja asal Maninjau, Sumatera Barat, bercita-cita jadi insinyur, tapi mengikuti permintaan ibunya untuk masuk pesantren di Jawa. Di sanalah petualangan spiritual dan intelektualnya dimulai.
+        </p>
+        <button class="pinjam-btn" id="pinjamLangsungBtn">Pinjam</button>
+        <button onclick="location.href='interface3.html'" class="whislist-btn">Wishlist</button>
+        <button onclick="location.href='interface2.html'" class="pinjam-btn">Komentar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Popup -->
+  <div id="popupForm" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;box-shadow:0 0 10px rgba(0,0,0,0.3);border-radius:10px;z-index:1000;">
+    <h3>Data Peminjam</h3>
+    <input type="text" id="nama" placeholder="Nama" style="display:block;margin-bottom:10px;width:100%;padding:8px;">
+    <input type="text" id="telp" placeholder="Nomor Telepon" style="display:block;margin-bottom:10px;width:100%;padding:8px;">
+    <button onclick="kirimData()" style="padding:8px 16px">Kirim</button>
+    <button onclick="document.getElementById('popupForm').style.display='none'" style="margin-left:10px">Batal</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Teknik Informatika UTM</h3>
+        <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+      </div>
+      <div class="footer-section about-us">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+          <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+          <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+          <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+          <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+          <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+          <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+        </ul>
+      </div>
+      <div class="footer-section footer-links">
+        <h4>Media Sosial</h4>
+        <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    document.getElementById("pinjamLangsungBtn").addEventListener("click", function () {
+      const today = new Date();
+      const tanggalPinjam = today.toISOString().split("T")[0];
+      const kembali = new Date(today);
+      kembali.setDate(kembali.getDate() + 20);
+      const tanggalKembali = kembali.toISOString().split("T")[0];
+
+      const buku = {
+        judul: "Negeri 5 Menara",
+        status: "Dipinjam",
+        tglPinjam: tanggalPinjam,
+        tglKembali: tanggalKembali,
+      };
+
+      let daftar = JSON.parse(localStorage.getItem("daftarPinjaman")) || [];
+      daftar.push(buku);
+      localStorage.setItem("daftarPinjaman", JSON.stringify(daftar));
+
+      const riwayat = JSON.parse(localStorage.getItem("riwayatPinjam")) || [];
+      riwayat.push({ buku: buku.judul, tanggalPinjam, tanggalKembali, status: "belum bayar" });
+      localStorage.setItem("riwayatPinjam", JSON.stringify(riwayat));
+
+      document.getElementById("popupForm").style.display = "block";
+    });
+
+    function kirimData() {
+      const nama = document.getElementById("nama").value.trim();
+      const telp = document.getElementById("telp").value.trim();
+      const judul = "Negeri 5 Menara";
+      const kategori = "Romantis";
+      const tanggal = new Date().toISOString().split("T")[0];
+
+      if (!nama || !telp) {
+        alert("Lengkapi data dulu ya!");
+        return;
+      }
+
+      const peminjamList = JSON.parse(localStorage.getItem("peminjamList")) || [];
+      peminjamList.push({ nama, telp, judul, tanggal });
+      localStorage.setItem("peminjamList", JSON.stringify(peminjamList));
+
+      const dataPengguna = JSON.parse(localStorage.getItem("dataPengguna")) || [];
+      dataPengguna.push({ nama, telp });
+      localStorage.setItem("dataPengguna", JSON.stringify(dataPengguna));
+
+      const statistikJudul = JSON.parse(localStorage.getItem("statistikJudul")) || {};
+      statistikJudul[judul] = (statistikJudul[judul] || 0) + 1;
+      localStorage.setItem("statistikJudul", JSON.stringify(statistikJudul));
+
+      const statistikKategori = JSON.parse(localStorage.getItem("statistikKategori")) || {};
+      statistikKategori[kategori] = (statistikKategori[kategori] || 0) + 1;
+      localStorage.setItem("statistikKategori", JSON.stringify(statistikKategori));
+
+      alert("✅ Data peminjam berhasil disimpan!");
+      window.location.href = "interface1.html";
+    }
+  </script>
+</body>
+</html>

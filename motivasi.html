@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Motivasi Harian - Perpustakaan Online</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .tanggal {
+      text-align: center;
+      font-size: 0.95em;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .quote {
+      background-color: #e6f0ff;
+      border-left: 5px solid #007bff;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+
+    .quote .text {
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .quote .meta {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>📚 Motivasi Membaca Hari Ini</h2>
+    <div class="tanggal" id="tanggal"></div>
+    <div id="list-motivasi"></div>
+  </div>
+
+  <script>
+    const semuaMotivasi = [
+      {
+        quote: "Buku adalah jendela dunia yang membuka cakrawala pemikiran kita.",
+        sumber: "Anonim",
+        buku: "Ungkapan Populer",
+        tahun: "Tidak diketahui"
+      },
+      {
+        quote: "Dengan membaca, kamu hidup ribuan kehidupan yang tak pernah kamu alami.",
+        sumber: "George R.R. Martin",
+        buku: "Game of Thrones",
+        tahun: "1996"
+      },
+      {
+        quote: "Bacalah buku yang membuatmu berpikir dua kali tentang dunia.",
+        sumber: "Haruki Murakami",
+        buku: "Kafka on the Shore",
+        tahun: "2002"
+      },
+      {
+        quote: "Hari tanpa membaca adalah hari tanpa belajar.",
+        sumber: "Aeri Rahman",
+        buku: "Catatan Perpustakaan",
+        tahun: "2024"
+      },
+      {
+        quote: "Setiap buku yang kamu baca membentuk siapa kamu besok.",
+        sumber: "Carl Sagan",
+        buku: "Cosmos",
+        tahun: "1980"
+      },
+      {
+        quote: "Perpustakaan adalah tempat terbaik untuk melarikan diri dengan damai.",
+        sumber: "Neil Gaiman",
+        buku: "The View from the Cheap Seats",
+        tahun: "2016"
+      },
+      {
+        quote: "Buku kecil bisa mengubah dunia, dan bisa mengubahmu juga.",
+        sumber: "Malala Yousafzai",
+        buku: "I Am Malala",
+        tahun: "2013"
+      },
+      {
+        quote: "Orang sukses membaca sebelum tidur, bukan scroll media sosial.",
+        sumber: "James Clear",
+        buku: "Atomic Habits",
+        tahun: "2018"
+      },
+      {
+        quote: "Terkadang, satu paragraf dalam buku bisa menyembuhkan satu minggu yang berat.",
+        sumber: "Najwa Shihab",
+        buku: "Catatan Najwa",
+        tahun: "2019"
+      },
+      {
+        quote: "Buku tidak hanya dibaca, tapi dirasakan dan dipahami.",
+        sumber: "Tere Liye",
+        buku: "Rindu",
+        tahun: "2014"
+      },
+      {
+        quote: "Jangan membaca karena tugas, bacalah karena kamu ingin tahu.",
+        sumber: "Albert Einstein",
+        buku: "Ideas and Opinions",
+        tahun: "1954"
+      },
+      {
+        quote: "Kamu tidak pernah sendiri selama ada buku di tanganmu.",
+        sumber: "J.K. Rowling",
+        buku: "Harry Potter",
+        tahun: "1997"
+      }
+    ];
+
+    const hariIni = new Date().toISOString().slice(0, 10);
+
+    function formatTanggalLengkap() {
+      const tanggalObj = new Date();
+      return tanggalObj.toLocaleDateString("id-ID", {
+        weekday: "long", year: "numeric", month: "long", day: "numeric"
+      });
+    }
+
+    function ambilMotivasiHariIni() {
+      const simpanan = JSON.parse(localStorage.getItem("motivasiHariIni_v3")) || {};
+      if (simpanan.tanggal === hariIni && simpanan.quotes?.length === 10) {
+        return simpanan.quotes;
+      }
+
+      const hasil = [];
+      const salinan = [...semuaMotivasi];
+
+      for (let i = 0; i < 10 && salinan.length > 0; i++) {
+        const index = Math.floor(Math.random() * salinan.length);
+        hasil.push(salinan.splice(index, 1)[0]);
+      }
+
+      localStorage.setItem("motivasiHariIni_v3", JSON.stringify({
+        tanggal: hariIni,
+        quotes: hasil
+      }));
+
+      return hasil;
+    }
+
+    document.getElementById("tanggal").innerText = formatTanggalLengkap();
+
+    const motivasiHariIni = ambilMotivasiHariIni();
+    const list = document.getElementById("list-motivasi");
+
+    motivasiHariIni.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "quote";
+
+      const teks = document.createElement("div");
+      teks.className = "text";
+      teks.textContent = `❝ ${item.quote}`;
+
+      const sumber = document.createElement("div");
+      sumber.className = "meta";
+      sumber.innerText = `— ${item.sumber}, ${item.buku} (${item.tahun})`;
+
+      div.appendChild(teks);
+      div.appendChild(sumber);
+      list.appendChild(div);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perpustakaan Online</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #0054b4;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+      font-size: 18px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .faq {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .profile-icon {
+      font-size: 26px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .profile-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .wrapper {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #dedede;
+      padding-top: 1rem;
+      flex-shrink: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin: 12px 0;
+      font-weight: 600;
+      color: #0b3f7a;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sidebar li:hover {
+      background-color: #e3f2fd;
+    }
+
+    .sidebar li a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .book-image img {
+      max-width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
+    }
+
+    .form-content {
+      width: 100%;
+    }
+
+    h3 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #34495e;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1.5px solid #3498db;
+      font-size: 14px;
+      resize: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      color: white;
+      background-color: #3498db;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .star-rating {
+      direction: rtl;
+      display: inline-flex;
+      font-size: 24px;
+    }
+
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+
+    .star-rating label {
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star-rating input[type="radio"]:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #f1c40f;
+    }
+
+    #tabelKomentar {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #tabelKomentar th,
+    #tabelKomentar td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+    }
+
+    #tabelKomentar thead {
+      background-color: #0054b4;
+      color: white;
+    }
+
+    #tabelKomentar tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    #tabelKomentar tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .komentar-singkat {
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+    }
+
+    .baca-selengkapnya {
+      color: #3498db;
+      cursor: pointer;
+      font-size: 13px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .footer {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 2rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: #00bcd4;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-section a {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #ffffff;
+    }
+
+    .footer__icon {
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Perpustakaan Online</h1>
+    <nav>
+      <a onclick="window.location.href='interface4.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/?size=20&id=m9mmKqXbgFsQ&format=png&color=000000"/>
+      </a>
+      <a href="#" class="faq">FAQ</a>
+      <i class="fas fa-user-circle profile-icon"></i>
+    </nav>
+  </header>
+
+  <div class="wrapper">
+    <aside class="sidebar">
+      <ul>
+        <li><a href="home.html"><img src="https://img.icons8.com/ios-filled/24/home.png" /> Home</a></li>
+        <li><a href="daftar-buku.html"><img src="https://img.icons8.com/ios-filled/24/book.png" /> Daftar Buku</a></li>
+        <li><a href="buku-anak.html"><img src="https://img.icons8.com/ios-filled/24/child-safe-zone.png" /> Buku Anak</a></li>
+        <li><a href="klub-buku.html"><img src="https://img.icons8.com/ios-filled/24/groups.png" /> Klub Buku</a></li>
+        <li><a href="event.html"><img src="https://img.icons8.com/ios-filled/24/event-accepted.png" /> Event</a></li>
+        <li><a href="challenge.html"><img src="https://img.icons8.com/ios-filled/24/flag.png" /> Challenge</a></li>
+        <li><a href="interface1.html"><img src="https://cdn-icons-png.flaticon.com/128/11274/11274609.png" width="30px" height="30px"/> Pengembalian Buku</a></li>
+        <li><a href="interface3.html"><img src="https://img.icons8.com/ios-filled/24/000000/bookmark-ribbon.png" /> Wishlist</a></li>
+        <li><a href="pengaturan.html"><img src="https://img.icons8.com/ios-filled/24/settings.png" /> Pengaturan</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="book-image">
+        <img src="3726mdpl.jpg" alt="Sampul Buku" />
+      </div>
+
+      <div class="form-content">
+        <h3>Beri Rating dan Komentar</h3>
+
+        <label>Rating:</label>
+        <div class="star-rating">
+          <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+          <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+          <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+          <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+          <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        </div>
+
+        <label>Komentar:</label>
+        <textarea id="komentar" name="komentar" placeholder="Tulis komentarmu di sini..."></textarea>
+        <button type="button" id="kirimRating">Kirim</button>
+
+        <h3>Daftar Komentar</h3>
+        <table id="tabelKomentar">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Komentar</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Teknik Informatika UTM</h3>
+        <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+      </div>
+
+      <div class="footer-section about-us">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="#">Riko Tampati – Ketua</a></li>
+          <li><a href="#">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section footer-links">
+        <h4>Media Sosial</h4>
+        <a href="#" class="footer__icon"><i class="bx bxl-whatsapp"></i></a>
+        <a href="#" class="footer__icon"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="footer__icon"><i class="bx bxl-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("kirimRating").addEventListener("click", function () {
+      const rating = document.querySelector('input[name="rating"]:checked')?.value;
+      const komentar = document.getElementById("komentar").value.trim();
+
+      if (!rating) {
+        alert("Silakan beri rating terlebih dahulu.");
+        return;
+      }
+
+      const dataRating = {
+        judul: "3726 Mdpl",
+        kategori: "Fiksi",
+        rating: parseFloat(rating),
+        komentar: komentar,
+        waktu: new Date().toISOString()
+      };
+
+      let semuaRating = JSON.parse(localStorage.getItem("dataRating")) || [];
+      semuaRating.push(dataRating);
+      localStorage.setItem("dataRating", JSON.stringify(semuaRating));
+      alert("Terima kasih atas rating Anda!");
+      window.location.reload();
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const semuaRating = JSON.parse(localStorage.getItem("dataRating")) || [];
+      const tbody = document.querySelector("#tabelKomentar tbody");
+      tbody.innerHTML = "";
+      let nomor = 1;
+      semuaRating.forEach((item) => {
+        if (item.komentar && item.komentar !== "") {
+          const tr = document.createElement("tr");
+          const pendek = item.komentar.length > 50;
+          const komentarPendek = pendek ? item.komentar.slice(0, 50) + "..." : item.komentar;
+
+          tr.innerHTML = `
+            <td>${nomor++}</td>
+            <td>
+              <div class="komentar-singkat">${komentarPendek}</div>
+              ${pendek ? `<span class="baca-selengkapnya" onclick="this.previousElementSibling.innerText='${item.komentar}'; this.style.display='none';">Baca Selengkapnya</span>` : ''}
+            </td>`;
+          tbody.appendChild(tr);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

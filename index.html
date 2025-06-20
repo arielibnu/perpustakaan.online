@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakan Online</title>
+    <link rel="stylesheet" href="style login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="kiri">
+            <h1 class="judul">Perpustakan Online</h1>
+            <img src="imglogin/book.jpg" alt="Books" class="book-image">
+        </div>
+
+        <!-- Form Login -->
+        <div class="kanan active" id="form-login">
+            <h1 class="login">Login</h1>
+            <form class="form">
+                <label for="email">Masukkan Email</label>
+                <input type="email" id="email" placeholder="Masukkan Email...">
+
+                <label for="password">Masukkan Kata Sandi</label>
+                <input type="password" id="password" placeholder="Masukkan Kata Sandi...">
+                <a href="#" class="lupaPW" onclick="window.openPopup('reset-password')">Lupa Password?</a>
+
+            </form>
+            <button onclick="Home.html" type="submit" class="masuk">Masuk</button>
+            <button type="button" class="masuk daftar-button" onclick="tampilDaftar()">Buat Akun</button>
+        </div>
+
+        <!-- Form Daftar -->
+        <div class="kanan" id="form-daftar">
+            <h1 class="login">Buat Akun</h1>
+            <form class="form">
+                <label for="username">Akun Pengguna</label>
+                <input type="text" id="username" placeholder="Akun Pengguna...">
+
+                <label for="daftar-email">Email</label>
+                <input type="email" id="daftar-email" placeholder="Email...">
+
+                <label for="daftar-password">Kata Sandi</label>
+                <input type="password" id="daftar-password" placeholder="Kata Sandi...">
+
+                <label for="konfirmasi-password">Konfirmasi Kata Sandi</label>
+                <input type="password" id="konfirmasi-password" placeholder="Konfirmasi Kata Sandi...">
+
+                <button type="submit" class="masuk">Daftar</button>
+            </form>
+
+            <button type="button" class="masuk daftar-button" onclick="tampilLogin()">Kembali ke Login</button>
+        </div>
+    </div>
+
+<!-- FORM RESET: Ganti Password -->
+<div class="popup" id="reset-password">
+  <div class="form-popup">
+    <button class="close-btn" onclick="closePopup('reset-password')">&times;</button>
+
+    <h2 class="popup-title">Reset Password</h2>
+
+    <label for="resetEmail">Email Terdaftar</label>
+    <input type="email" id="resetEmail" placeholder="Masukkan email...">
+
+    <button id="sendCodeBtn" class="send-code-btn" onclick="sendVerificationCode()">Kirim Kode</button><br>
+
+    <label for="verificationCode" style="display:none;">Kode Verifikasi</label>
+    <input type="text" id="verificationCode" placeholder="Masukkan kode verifikasi..." style="display:none">
+
+    <button id="verifyBtn" onclick="verifyCode()" style="display:none">Verifikasi Kode</button>
+
+    <label for="newPassword" style="display:none;">Kata Sandi Baru</label>
+    <input type="password" id="newPassword" placeholder="Kata sandi baru..." style="display:none">
+
+    <label for="confirmNewPassword" style="display:none;">Konfirmasi Kata Sandi</label>
+    <input type="password" id="confirmNewPassword" placeholder="Konfirmasi sandi..." style="display:none">
+
+    <button onclick="resetPassword()" id="resetBtn" style="display:none;">Ubah Password</button>
+  </div>
+</div>
+
+    <script src="login.js"></script>
+</body>
+</html>

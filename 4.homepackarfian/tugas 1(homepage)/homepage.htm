@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Pribadi Arfian</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgb(200, 248, 255);
+      color: black;
+    }
+
+    .header {
+      background-color: rgb(255, 240, 245);
+      padding: 20px;
+      text-align: center;
+      color: rgb(138, 43, 226);
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .nav-top {
+      background-color: rgb(230, 230, 250);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .nav-top a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: rgb(138, 43, 226);
+      font-weight: bold;
+    }
+
+    .main {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .content {
+      flex: 3;
+      background-color: rgb(255, 250, 240);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(60, 60, 60, 0.2);
+      margin-right: 20px;
+    }
+
+    .profile-img {
+      display: block;
+      margin: 20px auto;
+      width: 210px;
+      height: 280px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+
+    .content-section {
+      margin-bottom: 30px;
+    }
+
+    .sidebar-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar {
+      background-color: rgb(224, 255, 255);
+      color: rgb(0, 0, 0);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 10px 0;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      background-color: rgb(255, 239, 213);
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: white;
+      background-color: #333;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .social-links a:hover {
+      background-color: rgb(152, 251, 152);
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header dan Navigasi -->
+  <div class="header">WELCOME TO MY HOMEPAGE</div>
+  <div class="nav-top">
+    <a href="#beranda">Home</a>
+    <a href="#tentang">About</a>
+    <a href="#kontak">Contact</a>
+  </div>
+
+  <!-- Halaman Beranda -->
+  <div class="main" id="beranda">
+    <div class="content">
+      <div class="content-section">
+        <img src="foto/WhatsApp Image 2025-03-10 at 21.18.49_b4e54ca4.jpg" alt="profil" class="profile-img">
+        <p><strong>Nama:</strong> Muhammad Arfian Hidayatullah</p>
+        <p><strong>NIM:</strong> 240411100015</p>
+        <p><strong>Tempat, Tanggal Lahir:</strong> Gresik, 01 November 2006</p>
+        <p><strong>Alamat:</strong> Gedangan, Sidoarjo, Jawa Timur</p>
+        <p><strong>Kelas:</strong> Dasar Pemrograman Web G</p>
+      </div>
+
+      <hr>
+
+      <div class="content-section">
+        <h2 align="center">Project Tugas Akhir DPW</h2>
+        <h3 align="center">Judul Project: Perpustakaan Online</h3>
+        <h3>Interface :</h3>
+        <ul>
+          <li>Buku Anak    (Menampilkan berbagai buku khusus anak)</li>
+          <li>Mode Malam    (User bisa memilih tema mode malam atau siang)</li>
+          <li>Kalender Baca Pribadi     (User bisa mencatat hasil membaca nya di kalender baca pribadi ini) </li>
+          <li>Kritik dan Saran (User bisa mengasih kritik dan saran untuk admin atau perpustakaan)</li>
+          <li>Iterasi Digital (Sekumpulan kata-kata motivasi agar user semangat membaca)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 align="center">Apa Itu Perpustakaan Online?</h2>
+        <p>Perpustakaan online adalah sistem berbasis internet yang menyediakan koleksi buku digital. Dapat diakses kapan saja melalui perangkat elektronik.</p>
+        <p><strong>Kegunaan:</strong></p>
+        <ul>
+          <li>Sumber informasi akademik</li>
+          <li>Akses jarak jauh</li>
+          <li>Pengelolaan koleksi digital</li>
+        </ul>
+        <p><strong>Keunggulan:</strong></p>
+        <ul>
+          <li>Akses 24/7</li>
+          <li>Efisien waktu dan biaya</li>
+          <li>Pencarian cepat dan akurat</li>
+          <li>Ramah lingkungan</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sidebar 3 bagian -->
+    <div class="sidebar-container">
+      <div class="sidebar">
+        <h3>Hobi</h3>
+        <a href="https://tse2.mm.bing.net/th?id=OIP.bNF2vB2OxW9eXNga3uh_dQHaEw&pid=Api&P=0&h=180">Hiking</a>
+        <a href="https://tse3.mm.bing.net/th?id=OIP.9Ixuhie9jnIsV5KG6Sb7ogHaEo&pid=Api&P=0&h=180">Healing</a>
+        <a href="https://tse4.mm.bing.net/th?id=OIP.MLs7bV8heO_9oiDgV0fr8gHaE8&pid=Api&P=0&h=180">Traveling</a>
+      </div>
+      <div class="sidebar">
+        <h3>Mata Kuliah Top 3</h3>
+        <a href="#">DPW</a>
+        <a href="#">Struktur Data</a>
+        <a href="#">Metode Statistika</a>
+      </div>
+      <div class="sidebar">
+        <h3>Pengalaman</h3>
+        <a href="#">Magang di Radnet</a>
+        <a href="#">Mahasiswa Aktif</a>
+        <a href="#">Aktif Kepanitiaan</a>
+      </div>
+      <div class="sidebar">
+        <h3>Riwayat Pendidikan</h3>
+        <a href="#">SMP Muhammadiyah 1 Sda (2018-2021)</a>
+        <a href="#">SMK Antartika 2 Sda (2021-2024)</a>
+        <a href="#">Universitas Trunojoyo Madura (2024-sekarang)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Halaman Tentang -->
+  <div class="main" id="tentang">
+    <div class="content">
+      <h2 align="center">About Me</h2>
+      <p style="text-align: center;">
+        Saya Muhammad Arfian Hidayatullah, Mahasiswa Universitas Trunojoyo Madura,<br>
+        Program Studi Teknik Informatika, Angkatan 2024.<br><br>
+        Saya memiliki minat besar dalam pengembangan web dan teknologi informasi.<br>
+        Di waktu luang, saya suka belajar hal baru seputar pemrograman, desain, dan multimedia.
+      </p>
+    </div>
+  </div>
+
+  <!-- Halaman Kontak -->
+  <div class="main" id="kontak">
+    <div class="content">
+      <h2 align="center">Contact</h2>
+      <div class="social-links" style="text-align: center;">
+        <a href="https://www.instagram.com/arfiiann" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@arfiiann_" target="_blank">TikTok</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 | 240411100015 | Muhammad Arfian Hidayatullah | Teknik Informatika UTM.
+  </div>
+
+</body>
+</html>

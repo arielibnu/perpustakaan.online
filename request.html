@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+  <title>Perpustakaan Online</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0054b4;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 5px;
+      display: block;
+      color: #444;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4c6ef5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    button:hover {
+      background-color: #3b5bdb;
+    }
+
+    .breadcrumb {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+      color: #4c6ef5;
+    }
+    .footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  text-align: left;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #00bcd4;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-section a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #ffffff;
+}
+
+.footer__icon {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 5px;
+}
+  </style>
+</head>
+<body class="request">
+
+  <header>
+    <h1>Perpustakaan Online</h1>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="daftarbuku.html">Beranda</a> / Request Buku
+    </div>
+    <h2>Form Request Buku</h2>
+    <form id="bookRequestForm">
+      <div>
+        <label for="judul">Judul Buku</label>
+        <input type="text" id="judul" name="judul" required>
+      </div>
+      <div>
+        <label for="pengarang">Pengarang</label>
+        <input type="text" id="pengarang" name="pengarang" required>
+      </div>
+      <div class="full-width">
+        <label for="penerbit">Penerbit</label>
+        <input type="text" id="penerbit" name="penerbit">
+      </div>
+      <div class="full-width">
+        <label for="catatan">Catatan</label>
+        <textarea id="catatan" name="catatan" rows="4"></textarea>
+      </div>
+      <div class="full-width">
+        <button type="submit">Simpan Sekarang</button>
+      </div>
+    </form>
+  </div>
+
+  <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-section">
+          <h3>Teknik Informatika UTM</h3>
+          <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+        </div>
+
+        <div class="footer-section about-us">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+            <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+            <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+            <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+            <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+            <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+            <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+          </ul>
+        </div>
+
+          <div class="footer-section footer-links">
+            <h4>Media Sosial</h4>
+              <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+              <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+              <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+          </div>
+        </div>
+      </footer> 
+
+  <script src="request.js"></script>
+</body>
+</html>

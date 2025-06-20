@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kritik & Saran - Perpustakaan Online</title>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f5f5f5;
+    }
+
+    .navbar {
+      background-color: #003cb3;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      font-size: 40px;
+      margin: 0;
+    }
+
+    .navbar-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar-icons img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .form-container {
+      max-width: 800px;
+      background-color: #e1e1e1;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    .form-container h2 {
+      margin-top: 0;
+      font-size: 25px;
+    }
+
+    .form-container label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2e3b48;
+      color: white;
+      font-size: 14px;
+    }
+
+    .form-container textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    .form-container button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #0066ff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #0051cc;
+    }
+
+    .footer {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 2rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: #00bcd4;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-section a {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #ffffff;
+    }
+
+    .footer__icon {
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 5px;
+    }
+
+    /* Popup styling */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #007bff;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to   { opacity: 1; transform: translate(-50%, -50%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h1>Perpustakaan Online</h1>
+    <div class="navbar-icons">
+      <img src="img3/1946436.png" alt="Home" title="Home" onclick="location.href='Home.html'">
+      <div class="profile-icon" onclick="location.href='http://127.0.0.1:5501/index.htm'"></div>
+      <img src="img3/64572.png" alt="Profile" title="Profile" onclick="location.href='http://127.0.0.1:5501/index.htm'">
+    </div>
+  </div>
+
+  <div class="form-container">
+    <h2><strong>KONTAK<br>& KRITIK SARAN :</strong></h2>
+    <form id="formKritik">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
+
+      <label for="pesan">Pesan</label>
+      <textarea id="pesan" name="pesan" placeholder="Masukkan Pesan Anda" required></textarea>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Teknik Informatika UTM</h3>
+        <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+      </div>
+
+      <div class="footer-section about-us">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+          <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+          <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+          <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+          <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+          <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+          <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section footer-links">
+        <h4>Media Sosial</h4>
+        <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript untuk popup & redirect -->
+  <script>
+    const form = document.getElementById("formKritik");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Buat popup
+      const popup = document.createElement("div");
+      popup.className = "popup";
+      popup.innerText = "✅ Kritik & Saran telah diserahkan!";
+      document.body.appendChild(popup);
+
+      // Hapus dan redirect
+      setTimeout(() => {
+        popup.remove();
+        window.location.href = "pengaturan.html"; // Ganti jika perlu
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>

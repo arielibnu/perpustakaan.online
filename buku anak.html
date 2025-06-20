@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perpustakaan Online</title>
+  <link rel="stylesheet" href="stylebukuanak.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    .profile-icon {
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .profile-sidebar {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      padding: 30px;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      transition: right 0.3s ease-in-out;
+      z-index: 999;
+    }
+
+    .profile-sidebar.open {
+      right: 0;
+    }
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      color: #0d2d63;
+      font-weight: bold;
+    }
+
+    .profile-display-name {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .profile-img-wrapper {
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .edit-icon {
+      position: absolute;
+      bottom: 0;
+      right: calc(50% - 60px);
+      background-color: white;
+      border-radius: 50%;
+      padding: 5px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .info-section {
+      margin-top: 20px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .edit-button {
+      background-color: #0d2d63;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .edit-button:hover {
+      background-color: #163a7d;
+    }
+
+    .email-box {
+      background-color: #ffffff;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+  </style>
+  
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+        <li onclick="window.location.href='Home.html'" style="cursor:pointer;">
+          <img src="https://img.icons8.com/ios-filled/24/home.png"/> Home
+        </li>
+        <li onclick="window.location.href='daftarbuku.html'" style="cursor:pointer;">
+          <img src="https://img.icons8.com/ios-filled/24/book.png"/> Daftar Buku
+        </li>
+        <li onclick="window.location.href='1.klub.html'" style="cursor:pointer;">
+          <img src="https://img.icons8.com/ios-filled/24/groups.png"/> Klub Buku
+        </li>
+        <li onclick="window.location.href='6.event.html'" style="cursor:pointer;">
+          <img src="https://img.icons8.com/ios-filled/24/event-accepted.png"/> Event
+        </li>
+        <li onclick="window.location.href='challange.html'" style="cursor:pointer;">
+          <img src="https://img.icons8.com/ios-filled/24/flag.png"/> Challange
+        </li>
+        <li onclick="window.location.href='interface1.html'" style="cursor:pointer;">
+          <img src="https://img.icons8.com/ios-filled/24/open-book.png"/> Pengembalian Buku
+        </li>
+        <li onclick="window.location.href='pengaturan.html'" style="cursor:pointer;">
+          <img src="https://img.icons8.com/ios-filled/24/settings.png"/> Pengaturan
+        </li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <header class="header">
+        <h1>Perpustakaan Online</h1>
+        <div class="fas fa-user-circle user-icon" onclick="toggleSidebar()">
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="book-section">
+          <h2>Kategori Buku Anak</h2>
+          <div class="books">
+            <div class="book">
+              <a href="https://www.gramedia.com/products/buku-interaktif-paud-anak-hewan" target="_blank">
+                <img src="img/anakhewan.png" alt="Anak Hewan">
+                <p>Anak Hewan - Bhuana Ilmu Populer</p>
+              </a>
+            </div>
+            <div class="book">
+              <a href="https://www.gramedia.com/products/buku-aktivitas-anak-cerdas-pintar" target="_blank">
+                <img src="img/anak cerdas pintar.png" alt="Buku Aktivitas Anak-anak pintar" />
+                <p>Anak Cerdas Pintar - Cyrano Publisher</p>
+              </a>
+            </div>
+            <div class="book">
+              <a href="https://www.gramedia.com/products/ripleys-believe-it-or-not-kids-buku-aktivitas-untuk-anak-anak-penasaran" target="_blank">
+                <img src="img/buku aktivitas.png" alt="Buku Aktivitas" />
+                <p>Buku Aktivitas - m&c</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-desc">
+          <h3>Tentang Buku Anak Hewan - Bhuana Ilmu Populer:</h3>
+          <p>Cerita dalam buku ini mengandung materi yang diperuntukkan untuk pembaca anak-anak 4 tahun ke atas...</p>
+
+          <h3>Tentang Buku Anak Cerdas Pintar - Cyrano Publisher:</h3>
+          <p>Ayo tumbuh kembangkan kecerdasan anak dengan buku aktivitas "Anak Cerdas dan Pintar"...</p>
+
+          <h3>Tentang Buku Aktivitas - m&c:</h3>
+          <p>Pemilihan buku untuk anak perlu disesuaikan dengan usia anak dan isi yang terkandung di dalamnya...</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Teknik Informatika UTM</h3>
+            <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+          </div>
+
+          <div class="footer-section about-us">
+            <h4>About Us</h4>
+            <ul>
+              <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+              <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+              <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+              <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+              <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+              <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+              <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section footer-links">
+            <h4>Media Sosial</h4>
+              <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+              <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+              <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+          <!-- SIDEBAR PROFIL -->
+  <div class="profile-sidebar" id="profileSidebar">
+    <button class="back-button" onclick="toggleSidebar()">→</button>
+
+    <div class="profile-display-name" id="displayName">bobyy</div>
+
+    <div class="profile-img-wrapper">
+      <img src="pp.jpg" alt="Profil" class="profile-img" id="profileImage">
+      <label for="imageUpload" class="edit-icon">✎</label>
+      <input type="file" id="imageUpload" accept="image/*" onchange="changeImage(event)">
+    </div>
+
+    <!-- Mode Lihat -->
+    <div class="info-section" id="profileView">
+      <p class="label">USERNAME</p>
+      <p id="username">@bobyy</p>
+
+      <p class="label">FULLNAME</p>
+      <p id="fullname">Bobby Osmo Sayuri</p>
+
+      <p class="label">EMAIL</p>
+      <div class="email-box">contact@gmail.com</div>
+      
+      <button class="edit-button" onclick="enableEdit()">✎ Edit Profil</button>
+    </div>
+    
+    <!-- Mode Edit -->
+    <div class="info-section" id="profileEdit" style="display: none;">
+      <p class="label">USERNAME</p>
+      <input type="text" id="editUsername" value="bobyy">
+      
+      <p class="label">FULLNAME</p>
+      <input type="text" id="editFullname" value="Bobby Osmo Sayuri">
+      
+      <p class="label">EMAIL</p>
+      <div class="email-box">contact@gmail.com</div>
+      <button class="edit-button" onclick="saveProfile()">Simpan</button>
+    </div>
+  </div>
+
+
+  <!-- JS -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("profileSidebar");
+      sidebar.classList.toggle("open");
+      document.getElementById("profileView").style.display = "block";
+      document.getElementById("profileEdit").style.display = "none";
+    }
+
+    function enableEdit() {
+      document.getElementById("profileView").style.display = "none";
+      document.getElementById("profileEdit").style.display = "block";
+    }
+
+    function saveProfile() {
+  const username = document.getElementById("editUsername").value;
+  const fullname = document.getElementById("editFullname").value;
+
+  document.getElementById("username").innerText = '@' + username;
+  document.getElementById("fullname").innerText = fullname;
+
+  // Ganti displayName berdasarkan username (tanpa @)
+  document.getElementById("displayName").innerText = username;
+
+  document.getElementById("profileView").style.display = "block";
+  document.getElementById("profileEdit").style.display = "none";
+}
+
+
+    function changeImage(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        document.getElementById("profileImage").src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+</body>
+</html>

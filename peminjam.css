@@ -1,0 +1,227 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styles (sebelah kiri) */
+aside.sidebar {
+  width: 220px;
+  background-color: #364f6b;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  order: -1;
+  overflow-y: auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  padding: 12px;
+  margin: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li:hover {
+  background-color: #526d82;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 0;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #2600ff;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btnReset {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#btnReset:hover {
+  background-color: #d32f2f;
+}
+
+/* Popup Form Styles */
+#popupForm {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid #333;
+  padding: 20px;
+  z-index: 9999;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#popupForm h2 {
+  margin-top: 0;
+}
+
+.close-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  float: right;
+  cursor: pointer;
+}
+
+/* Form Styles */
+form {
+  margin-top: 20px;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button[type="submit"] {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Message Styles */
+#success-message {
+  color: green;
+  margin-top: 10px;
+  display: none;
+}
+
+/* Empty Table Message */
+td[colspan] {
+  text-align: center;
+  color: #777;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  aside.sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 15px;
+    order: 0;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #popupForm {
+    width: 90%;
+    max-width: 300px;
+  }
+}

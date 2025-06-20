@@ -1,0 +1,324 @@
+/* Reset dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container utama */
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #f0f2f5;
+  color: #222;
+}
+
+/* Sidebar kiri */
+.sidebar {
+  width: 220px;
+  background-color: #364f6b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Logo di sidebar */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Navigasi sidebar */
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  padding: 10px 12px;
+  margin: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li:hover {
+  background-color: #526d82;
+}
+
+/* Konten utama */
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header utama */
+.header {
+  background-color: white;
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.header-right .user-icon {
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+/* Section konten */
+.content {
+  padding: 20px;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff;
+}
+
+/* Bagian daftar buku */
+.book-section {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.05);
+}
+
+/* Bar kategori + tombol + search */
+.kategori-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.kategori-bar h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #364f6b;
+}
+
+/* Container kanan di kategori bar */
+.kategori-kanan {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Kotak pencarian */
+.search-group {
+  display: flex;
+  border: 1.5px solid #364f6b;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.search-box {
+  padding: 6px 10px;
+  border: none;
+  outline: none;
+  width: 180px;
+  font-size: 1rem;
+}
+
+.search-button {
+  background-color: #364f6b;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #2c3e50;
+}
+
+/* Tombol aksi */
+.aksi {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.aksi:hover {
+  background-color: #357ABD;
+}
+
+/* Daftar buku */
+.books {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Box buku */
+.book {
+  background-color: white;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
+  display: flex;
+  gap: 15px;
+  padding: 12px;
+  align-items: flex-start;
+}
+
+.book:hover {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.book img {
+  width: 140px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Info buku */
+.book-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Judul buku */
+.book-info h3 {
+  margin-bottom: 0;
+  font-size: 1.3rem;
+  color: #2c3e50;
+}
+
+/* Kategori buku */
+.kategori-buku {
+  font-weight: 600;
+  color: #4a90e2;
+}
+
+/* Deskripsi singkat */
+.deskripsi {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+  max-height: 3.9em; /* sekitar 3 baris */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Tombol di bawah info */
+.book-info > div {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* Tombol kecil pada buku */
+.book button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.book button:hover {
+  background-color: #357ABD;
+}
+
+/* Tombol hapus warna merah */
+.book button.hapus {
+  background-color: #f44336;
+}
+
+.book button.hapus:hover {
+  background-color: #c62828;
+}
+
+/* Modal form tambah/edit buku */
+#formModal {
+  color: #222;
+}
+
+#formModal input,
+#formModal textarea {
+  padding: 8px 10px;
+  border: 1.2px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: inherit;
+}
+
+#formModal button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+#formModal button:hover {
+  background-color: #357ABD;
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  .main {
+    height: auto;
+  }
+
+  .book {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book img {
+    width: 100%;
+    height: auto;
+  }
+}

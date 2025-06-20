@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perpustakaan Online</title>
+  <link rel="stylesheet" href="interface1.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    #notif {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4caf50;
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Kotak Masuk Reminder -->
+  <div id="kotakMasuk" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); max-width: 300px; display: none; z-index: 999;">
+    <strong>📬 Peringatan Pengembalian</strong>
+    <ul id="kotakMasukList" style="margin-top: 8px; padding-left: 18px;"></ul>
+  </div>
+
+  <header>
+    <h1>Perpustakaan Online</h1>
+    <nav>
+      <a onclick="window.location.href='interface4.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/?size=20&id=m9mmKqXbgFsQ&format=png&color=000000" />
+      </a>
+      <a href="#">FAQ</a>
+      <i class="fas fa-user-circle user-icon"></i>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+        <li><a href="home.html"><img src="https://img.icons8.com/ios-filled/24/home.png" /> Home</a></li>
+        <li><a href="daftarbuku.html"><img src="https://img.icons8.com/ios-filled/24/book.png" /> Daftar Buku</a></li>
+        <li><a href="buku anak.html"><img src="https://img.icons8.com/ios-filled/24/child-safe-zone.png" /> Buku Anak</a></li>
+        <li><a href="1.klub.html"><img src="https://img.icons8.com/ios-filled/24/groups.png" /> Klub Buku</a></li>
+        <li><a href="6.event.html"><img src="https://img.icons8.com/ios-filled/24/event-accepted.png" /> Event</a></li>
+        <li><a href="challange.html"><img src="https://img.icons8.com/ios-filled/24/flag.png" /> Challenge</a></li>
+        <li>
+          <a href="interface1.html">
+            <img src="https://cdn-icons-png.flaticon.com/128/11274/11274609.png" width="30px" height="30px" />
+            Pengembalian Buku
+            <span id="badgeTelat" style="display: none; background: red; color: white; border-radius: 50%; padding: 2px 6px; margin-left: 6px; font-size: 12px;">!</span>
+          </a>
+        </li>
+        <li><a href="interface3.html"><img src="https://img.icons8.com/ios-filled/24/bookmark-ribbon.png" /> Wishlist</a></li>
+        <li><a href="pengaturan.html"><img src="https://img.icons8.com/ios-filled/24/settings.png" /> Pengaturan</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="kotak-inbox" style="margin: 20px; padding: 15px; background: #fff9f0; border: 1px solid #ffc107; border-radius: 10px;">
+        <h3 style="margin: 0 0 10px 0">📬 Kotak Masuk</h3>
+        <ul id="kotakMasukList" style="padding-left: 20px; list-style: disc"></ul>
+      </div>
+
+      <div class="table-container">
+        <table border="2">
+          <thead>
+            <tr>
+              <th>NO.</th>
+              <th>JUDUL BUKU</th>
+              <th>STATUS BUKU</th>
+              <th>TANGGAL PEMINJAMAN</th>
+              <th>TANGGAL PENGEMBALIAN</th>
+              <th>DENDA</th>
+              <th>AKSI</th>
+            </tr>
+          </thead>
+          <tbody id="tabelPinjaman"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Denda -->
+  <div id="modalDenda" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 350px; text-align: center;">
+      <h3>📚 Denda Pengembalian</h3>
+      <p id="modalDendaText" style="white-space: pre-line; margin-bottom: 15px"></p>
+
+      <label for="metodePembayaran" style="display: block; margin-bottom: 10px; font-weight: bold">Pilih Metode Pembayaran:</label>
+      <select id="metodePembayaran" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;">
+        <option value="">-- Pilih --</option>
+        <option value="bank">Transfer Bank</option>
+        <option value="qris">QRIS</option>
+        <option value="ewallet">E-Wallet (Gopay)</option>
+        <option value="ewallet">E-Wallet (DANA)</option>
+        <option value="ewallet">E-Wallet (OVO)</option>
+      </select>
+
+      <div id="infoPembayaran" style="margin-bottom: 20px; display: none"></div>
+
+      <button id="btnBayarDenda" style="background-color: #28a745; color: white; padding: 8px 16px; border: none; border-radius: 5px; margin-right: 10px;" onclick="location.href='interface2.html'">Bayar Denda</button>
+      <button onclick="tutupModalDenda()" style="background-color: #dc3545; color: white; padding: 8px 16px; border: none; border-radius: 5px;">Batal</button>
+    </div>
+  </div>
+
+  <script>
+    let rowSaatIni = null;
+
+    function tutupModalDenda() {
+      document.getElementById("modalDenda").style.display = "none";
+      document.getElementById("metodePembayaran").value = "";
+      document.getElementById("infoPembayaran").innerHTML = "";
+      document.getElementById("infoPembayaran").style.display = "none";
+    }
+
+    function hapusDataPinjaman(judul, tglPinjam, tglKembali) {
+      let daftar = JSON.parse(localStorage.getItem("daftarPinjaman")) || [];
+      daftar = daftar.filter(item => !(item.judul === judul && item.tglPinjam === tglPinjam && item.tglKembali === tglKembali));
+      localStorage.setItem("daftarPinjaman", JSON.stringify(daftar));
+    }
+
+    function kembalikanBuku(button) {
+      const row = button.closest("tr");
+      const judul = row.cells[1].textContent.trim();
+      const tglPinjam = row.querySelector(".tglPinjam").value;
+      const tglKembali = row.querySelector(".tglKembali").value;
+      const dendaText = row.querySelector(".dendaText").innerText;
+
+      if (dendaText.includes("Rp") && !dendaText.includes("Tidak Ada Denda")) {
+        rowSaatIni = row;
+        document.getElementById("modalDendaText").innerText = `${dendaText}\n\nApakah Anda ingin membayar sekarang?`;
+        document.getElementById("modalDenda").style.display = "flex";
+      } else {
+        hapusDataPinjaman(judul, tglPinjam, tglKembali);
+        row.remove();
+        alert("📚 Buku berhasil dikembalikan tanpa denda. Terima kasih!");
+      }
+    }
+
+    document.getElementById("btnBayarDenda").addEventListener("click", function () {
+      const metode = document.getElementById("metodePembayaran").value;
+      if (!metode) return alert("⚠ Silakan pilih metode pembayaran terlebih dahulu.");
+      const namaMetode = metode === "bank" ? "Transfer Bank" : metode === "qris" ? "QRIS" : "E-Wallet";
+
+      if (metode === "ewallet") {
+        const nomor = document.getElementById("inputEwallet")?.value.trim();
+        if (!nomor || !/^[0-9]{9,15}$/.test(nomor)) return alert("⚠ Masukkan nomor E-Wallet yang valid.");
+      }
+
+      alert(`✅ Denda berhasil dibayar melalui ${namaMetode}.\n📚 Buku berhasil dikembalikan.`);
+      tutupModalDenda();
+      if (rowSaatIni) {
+        const judul = rowSaatIni.cells[1].textContent.trim();
+        const tglPinjam = rowSaatIni.querySelector(".tglPinjam").value;
+        const tglKembali = rowSaatIni.querySelector(".tglKembali").value;
+        hapusDataPinjaman(judul, tglPinjam, tglKembali);
+        rowSaatIni.remove();
+      }
+    });
+
+    document.getElementById("metodePembayaran").addEventListener("change", function () {
+      const metode = this.value;
+      const info = document.getElementById("infoPembayaran");
+      info.innerHTML = "";
+      info.style.display = "none";
+
+      if (metode === "bank") {
+        info.style.display = "block";
+        info.innerHTML = `<p><strong>Bank Mandiri</strong></p><p>Nama: Perpustakaan Online</p><p>No. Rek: 123-456-7890</p>`;
+      } else if (metode === "qris") {
+        info.style.display = "block";
+        info.innerHTML = `
+        <p>Scan kode QRIS berikut untuk membayar:</p>
+        <img src="bayar denda.png" 
+        alt="Kode QRIS" 
+        style="width:200px; height:auto; border:1px solid #ccc; border-radius:8px; margin-top:10px;"
+        />
+        <p style="font-size: 12px; color: #666; margin-top:5px;">Tunjukkan barcode ini ke aplikasi pembayaran digital kamu (OVO, DANA, GoPay, dll)</p>`;
+      } else if (metode === "ewallet") {
+        info.style.display = "block";
+        info.innerHTML = `<label for="inputEwallet">Masukkan Nomor E-Wallet:</label><br /><input id="inputEwallet" type="text" placeholder="Contoh: 08123456789" style="width: 100%; padding: 8px; margin-top:5px; border-radius:5px; border:1px solid #ccc;" />`;
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const daftar = JSON.parse(localStorage.getItem("daftarPinjaman")) || [];
+      const tbody = document.getElementById("tabelPinjaman");
+      const inboxList = document.getElementById("kotakMasukList");
+      const kotakMasuk = document.getElementById("kotakMasuk");
+      const badgeTelat = document.getElementById("badgeTelat");
+
+      let adaDenda = false;
+
+      tbody.innerHTML = "";
+      inboxList.innerHTML = "";
+      kotakMasuk.style.display = "none";
+      badgeTelat.style.display = "none";
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      daftar.forEach((item, index) => {
+        const tglPinjam = new Date(item.tglPinjam);
+        const tglKembali = new Date(item.tglKembali);
+        const jatuhTempo = new Date(tglPinjam);
+        jatuhTempo.setDate(jatuhTempo.getDate() + 14);
+
+        let dendaText = "Tidak Ada Denda";
+        let color = "green";
+        let isTerlambat = false;
+
+        if (tglKembali > jatuhTempo) {
+          const selisih = Math.ceil((tglKembali - jatuhTempo) / (1000 * 60 * 60 * 24));
+          const denda = selisih * 1000;
+          dendaText = `Rp ${denda.toLocaleString()} (${selisih} hari terlambat)`;
+          color = "red";
+          isTerlambat = true;
+          adaDenda = true;
+        }
+
+        const bedaHari = Math.ceil((tglKembali - today) / (1000 * 60 * 60 * 24));
+        const judul = item.judul;
+        let pesan = "";
+
+        if (bedaHari === 1 || bedaHari === 2) {
+          pesan = `📘 Buku "${judul}" harus dikembalikan dalam ${bedaHari} hari.`;
+        } else if (bedaHari === 0) {
+          pesan = `📕 Buku "${judul}" jatuh tempo HARI INI!`;
+        } else if (bedaHari < 0 && isTerlambat) {
+          pesan = `⚠ Buku "${judul}" TELAT dikembalikan (${Math.abs(bedaHari)} hari)! Harap segera membayar denda.`;
+        }
+
+        if (pesan) {
+          const li = document.createElement("li");
+          li.innerText = pesan;
+          li.style.color = (bedaHari < 0 ? "red" : (bedaHari === 0 ? "orange" : "blue"));
+          inboxList.appendChild(li);
+          kotakMasuk.style.display = "block";
+
+          if ("Notification" in window && Notification.permission === "granted") {
+            new Notification("📚 Peringatan Pengembalian", {
+              body: pesan,
+              icon: "https://img.icons8.com/ios-filled/50/book.png",
+            });
+          }
+        }
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${judul}</td>
+          <td>${item.status}</td>
+          <td class="tglPinjamText">${tglPinjam.toLocaleDateString("id-ID")}</td>
+          <td class="tglKembaliText">${tglKembali.toLocaleDateString("id-ID")}</td>
+          <td class="kolomDenda">
+            <input type="date" class="tglPinjam" value="${item.tglPinjam}" style="display:none;">
+            <input type="date" class="tglKembali" value="${item.tglKembali}" style="display:none;">
+            <span class="dendaText" style="color:${color}">${dendaText}</span>
+          </td>
+          <td align="center"><button onclick="kembalikanBuku(this)">Kembalikan</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      if (adaDenda) {
+        badgeTelat.style.display = "inline-block";
+      }
+
+      if ("Notification" in window && Notification.permission !== "granted") {
+        Notification.requestPermission();
+      }
+    });
+  </script>
+</body>
+</html>

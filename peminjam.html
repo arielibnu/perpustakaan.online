@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Peminjam</title>
+    <link rel="stylesheet" href="peminjam.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📋 Daftar Peminjam</h1>
+
+      <table id="tabelPeminjam">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>No Telepon</th>
+            <th>Judul Buku</th>
+            <th>Tanggal Peminjaman</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Akan diisi oleh JavaScript -->
+        </tbody>
+      </table>
+
+      <button id="btnReset">Hapus Semua Data Peminjam</button>
+    </div>
+
+    <!-- Popup form tersembunyi -->
+    <div id="popupForm">
+      <button id="closePopupBtn" class="close-button">✖</button>
+      <h2>Form Peminjaman</h2>
+      <form id="formPinjam">
+        <label for="nama">Nama:</label><br />
+        <input type="text" id="nama" name="nama" required /><br /><br />
+
+        <label for="telp">No Telepon:</label><br />
+        <input type="text" id="telp" name="telp" required /><br /><br />
+
+        <button type="submit" style="padding: 6px 12px">Kirim</button>
+      </form>
+      <div id="success-message">✔ Data berhasil disimpan!</div>
+    </div>
+    <aside class="sidebar">
+      <div class="logo">📚<br />Perpustakaan Online</div>
+      <nav>
+        <ul>
+          <li>
+            <a href="riko.html" style="text-decoration: none; color: inherit"
+              >🚥 Dashboard</a
+            >
+          </li>
+          <li>📖 Daftar buku</li>
+          <li>👶 Buku Anak</li>
+          <li>👥 Klub Buku</li>
+          <li>📅 Event</li>
+          <li>🏆 Challenge</li>
+          <li>🩷 Wishlist</li>
+          <li>
+            <a href="oo.html" style="text-decoration: none; color: inherit">
+              🔎 Daftar Pengguna</a
+            >
+          </li>
+
+          <a
+            href="pengaturan.html"
+            style="text-decoration: none; color: inherit"
+            ><li>⚙ Pengaturan</li></a
+          >
+        </ul>
+      </nav>
+    </aside>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tbody = document.querySelector("#tabelPeminjam tbody");
+        const peminjamList =
+          JSON.parse(localStorage.getItem("peminjamList")) || [];
+
+        if (peminjamList.length === 0) {
+          const row = document.createElement("tr");
+          row.innerHTML = `<td colspan="4" style="text-align:center;">Belum ada data peminjam</td>`;
+          tbody.appendChild(row);
+        } else {
+          peminjamList.forEach((p) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${p.nama}</td>
+              <td>${p.telp}</td>
+              <td>${p.judul}</td>
+              <td>${p.tanggal || "-"}</td>
+            `;
+            tbody.appendChild(row);
+          });
+        }
+
+        const resetBtn = document.getElementById("btnReset");
+        resetBtn.addEventListener("click", () => {
+          if (confirm("Yakin ingin menghapus semua data peminjam?")) {
+            localStorage.removeItem("peminjamList");
+            location.reload();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

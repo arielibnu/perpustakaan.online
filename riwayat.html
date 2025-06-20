@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peminjaman Buku</title>
+  <link rel="stylesheet" href="riwayat.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Peminjaman Buku</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama Buku</th>
+          <th>Tanggal Peminjaman</th>
+          <th>Tanggal Pengembalian</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="riwayatBody"> -->
+        <!-- Data akan ditampilkan di sini -->
+      <!-- </tbody>
+    </table>
+  </div>
+
+  <script>
+    function loadRiwayat() {
+      const data = JSON.parse(localStorage.getItem("riwayatPinjam")) || [];
+      const tbody = document.getElementById("riwayatBody");
+      tbody.innerHTML = "";
+
+      data.forEach((item, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.buku}</td>
+          <td>${item.tanggalPinjam}</td>
+          <td>${item.tanggalKembali}</td>
+          <td><button onclick="hapus(${index})">Cancel</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function hapus(index) {
+      const data = JSON.parse(localStorage.getItem("riwayatPinjam")) || [];
+      data.splice(index, 1);
+      localStorage.setItem("riwayatPinjam", JSON.stringify(data));
+      loadRiwayat();
+    }
+
+    window.onload = loadRiwayat;
+  </script>
+</body>
+</html> -->

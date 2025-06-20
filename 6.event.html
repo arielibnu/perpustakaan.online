@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpustakaan Online</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    .profile-icon {
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .profile-sidebar {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      padding: 30px;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      transition: right 0.3s ease-in-out;
+      z-index: 999;
+    }
+
+    .profile-sidebar.open {
+      right: 0;
+    }
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      color: #0d2d63;
+      font-weight: bold;
+    }
+
+    .profile-display-name {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .profile-img-wrapper {
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .edit-icon {
+      position: absolute;
+      bottom: 0;
+      right: calc(50% - 60px);
+      background-color: white;
+      border-radius: 50%;
+      padding: 5px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .info-section {
+      margin-top: 20px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .edit-button {
+      background-color: #0d2d63;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .edit-button:hover {
+      background-color: #163a7d;
+    }
+
+    .email-box {
+      background-color: #ffffff;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Perpustakaan Online</h1>
+    <nav>
+      <a onclick="window.location.href='interface4.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/?size=20&id=m9mmKqXbgFsQ&format=png&color=000000"/>
+      </a>
+      <a href="Faq.html">FAQ</a>
+      <div class="fas fa-user-circle user-icon" onclick="toggleSidebar()"></div>
+    </nav>
+  </header>
+
+  <div class="container">
+  <div class="sidebar">
+    <ul>
+      
+      <li onclick="window.location.href='Home.html'" style="cursor:pointer;">
+      <img src="https://img.icons8.com/ios-filled/24/home.png"/> Home
+      </li>
+      <li onclick="window.location.href='daftarbuku.html'" style="cursor:pointer;">
+      <img src="https://img.icons8.com/ios-filled/24/book.png"/> Daftar Buku
+      </li>
+      <li onclick="window.location.href='buku anak.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/child-safe-zone.png"/>Buku Anak
+      </li>
+      <li onclick="window.location.href='1.klub.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/groups.png"/>Klub Buku
+      </li>
+      <li onclick="window.location.href='challange.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/flag.png"/>Challange
+      </li>
+      <li onclick="window.location.href='interface1.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/000000/open-book.png"/>Pengembalian Buku
+      </li>
+      <li onclick="window.location.href='pengaturan.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/ios-filled/24/settings.png"/>Pengaturan
+      </li>
+    </ul>
+  </div>
+
+    <main class="content-club">
+      <div class="event">
+        <h1>EVENT</h1>
+        <P>Rangkaian acara literasi yang menghadirkan seminar inspiratif dan sesi bedah buku bersama penulis dan pembaca. Ruang bertukar gagasan, menambah wawasan, dan memperdalam makna dari setiap bacaan.</P>
+    </div>
+
+      <section class="club">
+        <div class="club-card">
+          <a href="7.bedahbuku.html">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop" alt="Bedah Buku">
+            <h3>BEDAH BUKU</h3>
+            <div class="event-info">
+              <i class="far fa-calendar"></i>
+              <span>24 Februari 2025 - 11 Maret 2025</span>
+            </div>
+            <div class="participants">
+              <i class="far fa-user"></i>
+              <span>6861 partisipan saat ini</span>
+            </div>
+            <p>Mengupas tuntas isi buku dengan diskusi mendalam bersama penulis dan kritikus sastra terkemuka.</p>
+            <div class="badge-container">
+              <span class="badge">TELAH BERAKHIR</span>
+              <span class="status-badge offline">OFFLINE</span>
+            </div>
+          </a>
+        </div>
+        
+        <div class="club-card">
+          <a href="8.seminarnasional.html">
+            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=200&fit=crop" alt="Seminar Nasional">
+            <h3>SEMINAR NASIONAL</h3>
+            <div class="event-info">
+              <i class="far fa-calendar"></i>
+              <span>11 Januari 2025 - 18 Maret 2025</span>
+            </div>
+            <div class="participants">
+              <i class="far fa-user"></i>
+              <span>5751 partisipan saat ini</span>
+            </div>
+            <p>Seminar nasional tentang literasi digital dan transformasi perpustakaan modern di era teknologi.</p>
+            <div class="badge-container">
+              <span class="badge">TELAH BERAKHIR</span>
+              <span class="status-badge online">ONLINE</span>
+            </div>
+          </a>
+        </div>
+        
+        <div class="club-card">
+          <a href="9.onlinesharing.html">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="Online Sharing">
+            <h3>ONLINE SHARING</h3>
+            <div class="event-info">
+              <i class="far fa-calendar"></i>
+              <span>24 Desember 2024 - 13 Januari 2025</span>
+            </div>
+            <div class="participants">
+              <i class="far fa-user"></i>
+              <span>7654 partisipan saat ini</span>
+            </div>
+            <p>Sesi berbagi pengalaman membaca dan rekomendasi buku favorit dalam format virtual interaktif.</p>
+            <div class="badge-container">
+              <span class="badge">TELAH BERAKHIR</span>
+              <span class="status-badge online">ONLINE</span>
+            </div>
+          </a>
+        </div>
+        
+        <div class="club-card">
+          <a href="7.bedahbuku.html">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=200&fit=crop" alt="Workshop Menulis">
+            <h3>WORKSHOP MENULIS</h3>
+            <div class="event-info">
+              <i class="far fa-calendar"></i>
+              <span>15 Februari 2025 - 22 Februari 2025</span>
+            </div>
+            <div class="participants">
+              <i class="far fa-user"></i>
+              <span>3245 partisipan saat ini</span>
+            </div>
+            <p>Workshop intensif teknik penulisan kreatif untuk pemula hingga menengah dengan mentor berpengalaman.</p>
+            <div class="badge-container">
+              <span class="badge">BERLANGSUNG</span>
+              <span class="status-badge offline">OFFLINE</span>
+            </div>
+          </a>
+        </div>
+        
+        <div class="club-card">
+          <a href="8.seminarnasional.html">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=400&h=200&fit=crop" alt="Diskusi Virtual">
+            <h3>DISKUSI VIRTUAL MINGGUAN</h3>
+            <div class="event-info">
+              <i class="far fa-calendar"></i>
+              <span>Setiap Minggu - Ongoing</span>
+            </div>
+            <div class="participants">
+              <i class="far fa-user"></i>
+              <span>2156 partisipan saat ini</span>
+            </div>
+            <p>Diskusi rutin setiap minggu membahas buku pilihan dengan moderator ahli literatur.</p>
+            <div class="badge-container">
+              <span class="badge">AKTIF</span>
+              <span class="status-badge online">ONLINE</span>
+            </div>
+          </a>
+        </div>
+        
+        <div class="club-card">
+          <a href="9.onlinesharing.html">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop" alt="Meet The Author">
+            <h3>MEET THE AUTHOR</h3>
+            <div class="event-info">
+              <i class="far fa-calendar"></i>
+              <span>5 Maret 2025 - 12 Maret 2025</span>
+            </div>
+            <div class="participants">
+              <i class="far fa-user"></i>
+              <span>4892 partisipan saat ini</span>
+            </div>
+            <p>Kesempatan langka bertemu dan berdiskusi langsung dengan penulis bestseller nasional dan internasional.</p>
+            <div class="badge-container">
+              <span class="badge">MENDATANG</span>
+              <span class="status-badge offline">OFFLINE</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Teknik Informatika UTM</h3>
+      <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+    </div>
+
+    <div class="footer-section about-us">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+        <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+        <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+        <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+        <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+        <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+        <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section footer-links">
+      <h4>Media Sosial</h4>
+        <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+    </div>
+  </div>
+</footer>
+        <!-- SIDEBAR PROFIL -->
+  <div class="profile-sidebar" id="profileSidebar">
+    <button class="back-button" onclick="toggleSidebar()">→</button>
+
+    <div class="profile-display-name" id="displayName">bobyy</div>
+
+    <div class="profile-img-wrapper">
+      <img src="pp.jpg" alt="Profil" class="profile-img" id="profileImage">
+      <label for="imageUpload" class="edit-icon">✎</label>
+      <input type="file" id="imageUpload" accept="image/*" onchange="changeImage(event)">
+    </div>
+
+    <!-- Mode Lihat -->
+    <div class="info-section" id="profileView">
+      <p class="label">USERNAME</p>
+      <p id="username">@bobyy</p>
+
+      <p class="label">FULLNAME</p>
+      <p id="fullname">Bobby Osmo Sayuri</p>
+
+      <p class="label">EMAIL</p>
+      <div class="email-box">contact@gmail.com</div>
+      
+      <button class="edit-button" onclick="enableEdit()">✎ Edit Profil</button>
+    </div>
+    
+    <!-- Mode Edit -->
+    <div class="info-section" id="profileEdit" style="display: none;">
+      <p class="label">USERNAME</p>
+      <input type="text" id="editUsername" value="bobyy">
+      
+      <p class="label">FULLNAME</p>
+      <input type="text" id="editFullname" value="Bobby Osmo Sayuri">
+      
+      <p class="label">EMAIL</p>
+      <div class="email-box">contact@gmail.com</div>
+      <button class="edit-button" onclick="saveProfile()">Simpan</button>
+    </div>
+  </div>
+
+
+  <!-- JS -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("profileSidebar");
+      sidebar.classList.toggle("open");
+      document.getElementById("profileView").style.display = "block";
+      document.getElementById("profileEdit").style.display = "none";
+    }
+
+    function enableEdit() {
+      document.getElementById("profileView").style.display = "none";
+      document.getElementById("profileEdit").style.display = "block";
+    }
+
+    function saveProfile() {
+  const username = document.getElementById("editUsername").value;
+  const fullname = document.getElementById("editFullname").value;
+
+  document.getElementById("username").innerText = '@' + username;
+  document.getElementById("fullname").innerText = fullname;
+
+  // Ganti displayName berdasarkan username (tanpa @)
+  document.getElementById("displayName").innerText = username;
+
+  document.getElementById("profileView").style.display = "block";
+  document.getElementById("profileEdit").style.display = "none";
+}
+
+
+    function changeImage(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        document.getElementById("profileImage").src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+/* Global style */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f5f7fa;
+}
+
+/* Layout utama */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #dedede;
+  padding-top: 1rem;
+  min-height: 100vh;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Menu sidebar */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 14px 0;
+  font-weight: 600;
+  color: #0b3f7a;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.sidebar li:hover {
+  background-color: #e3f2fd;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  background-color: #f5f7fa;
+}
+
+/* Header */
+header {
+  background-color: #0054b4;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  font-size: 16px;
+}
+
+.header {
+  font-size: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon {
+  font-size: 26px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.faq {
+  font-size: 18px;
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Tabel Buku */
+.table-container {
+  margin: 40px auto;
+  width: 85%;
+  padding: 25px;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(145deg, #ffffff, #f1f1f1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.table-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+  background-color: #1976d2;
+  color: white;
+  padding: 16px;
+  font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+td {
+  color: #333;
+  padding: 14px;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+tr:hover td {
+  background-color: #f1f8ff;
+}
+
+/* Tombol aksi */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 4px 2px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:nth-child(1) {
+  background-color: #1976d2;
+  color: white;
+}
+
+button:nth-child(2) {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.user-icon {
+  font-size: 1.5rem;
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background-color: #0047a3;
+  color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.popup-content h2 {
+  text-align: center;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.popup-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.popup-content label {
+  font-weight: bold;
+}
+
+.popup-content input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  color: #333;
+}
+
+.popup-content button[type="submit"] {
+  background-color: white;
+  color: #0047a3;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.popup-content button[type="submit"]:hover {
+  background-color: #ddd;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+#Kembalikan {
+  background-color: #d32f2f;
+  color: #333;
+}
+
+#modalDenda h3 {
+  margin: 0 0 10px;
+}

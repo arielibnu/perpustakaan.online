@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Online</title>
+    <link rel="stylesheet" href="katagori1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+  <h1>Perpustakaan Online</h1>
+  <nav>
+      <a onclick="window.location.href='interface4.html'" style="cursor:pointer;">
+        <img src="https://img.icons8.com/?size=20&id=m9mmKqXbgFsQ&format=png&color=000000"/>
+      </a>
+    <a href="Faq">FAQ</a>
+    <div class="user-container">
+      <button class="kategori-btn" onclick="window.location.href='Home.html'">Kategori</button>
+      <button><i class="fas fa-search"></i></button>
+      <i class="fas fa-user-circle user-icon"></i>
+    </div>
+  </nav>
+</header>
+
+    <div class="main-content">
+        <div class="category-selection">
+            <h2>Pilih Genre Buku</h2>
+            <div class="category" onclick="showBooks('romance')">
+                <p>Romance</p>
+            </div>
+            <div class="category" onclick="showBooks('petualangan')">
+                <p>Petualangan</p>
+            </div>
+            <div class="category" onclick="showBooks('horor')">
+                <p>Horor</p>
+            </div>
+            <div class="category" onclick="showBooks('Sejarah')">
+                <p>Sejarah</p>
+            </div>
+        </div>
+
+        <div class="book-list" id="book-list">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+            <h3>Teknik Informatika UTM</h3>
+            <p>© 2025 Mahasiswa Teknik Informatika - Universitas Trunojoyo Madura</p>
+            </div>
+
+        <div class="footer-section about-us">
+            <h4>About Us</h4>
+            <ul>
+                <li><a href="./1.homepackriko/homepack.html" target="_blank">Riko Tampati – Ketua</a></li>
+                <li><a href="https://homepageel.vercel.app/" target="_blank">Ariel Ibnu Firmansyah MS – Anggota</a></li>
+                <li><a href="./6.homepackwahyu/homepage.html" target="_blank">Iman Wahyudy – Anggota</a></li>
+                <li><a href="./5.homepackamar/kontak.html" target="_blank">Muhammad Ammar A – Anggota</a></li>
+                <li><a href="./4.homepackarfian/homepage.htm" target="_blank">Muhammad Arfian Hidayatullah – Anggota</a></li>
+                <li><a href="./2.homepackbiyan/Kontak.html" target="_blank">Moch Zibyan Kadada – Anggota</a></li>
+                <li><a href="./3.homepackryan/kontak.html" target="_blank">Ryan Eka Maulana – Anggota</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-links">
+        <h4>Media Sosial</h4>
+            <a href="https://wa.me/6285856294992" target="blank" class="footer_icon"><i class="bx bxl-whatsapp"></i></a>
+            <a href="https://www.instagram.com/perpustakaannonline" target="blank" class="footer_icon"><i class="bx bxl-instagram"></i></a>
+            <a href="https://github.com/arielibnu" target="blank" class="footer_icon"><i class="bx bxl-github"></i></a>
+        </div>
+        </div>
+    </footer>
+
+    <script src="katagori.js"></script>
+</body>
+</html>

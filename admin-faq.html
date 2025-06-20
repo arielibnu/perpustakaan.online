@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Tambah FAQ</title>
+    <link rel="stylesheet" href="style-admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Tambah FAQ Baru</h2>
+      <input id="kategori" placeholder="Kategori FAQ" /><br /><br />
+      <textarea id="pertanyaan" placeholder="Pertanyaan"></textarea><br /><br />
+      <textarea id="jawaban" placeholder="Jawaban"></textarea><br /><br />
+      <button onclick="tambahFAQ()">Tambah FAQ</button>
+
+      <hr />
+      <div id="faqWrapper"></div>
+    </div>
+
+    <script src="script-admin.js"></script>
+  </body>
+</html>
